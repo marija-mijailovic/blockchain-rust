@@ -10,7 +10,13 @@ pub struct Blockchain {
 }
 
 impl Blockchain {
+
+  pub fn add_accounts(&mut self, account: String) {
+    self.accounts.insert(account, 100);
+  }
+
   pub fn add_transaction(&mut self, transaction: Transaction) {
+    println!("Accounts {:?}", self.accounts);
     let tx = transaction.clone();
     let transactions = vec![transaction];
     match self.blocks.last() {
