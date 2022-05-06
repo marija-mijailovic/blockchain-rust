@@ -1,8 +1,9 @@
 use std::time::{SystemTime, UNIX_EPOCH};
+use serde::{Serialize, Deserialize};
 
 use crate::transaction::Transaction;
 
-#[derive(Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Block {
   pub id: u32,
   pub timestamp: u128,

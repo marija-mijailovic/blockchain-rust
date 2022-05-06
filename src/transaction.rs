@@ -1,10 +1,11 @@
 use std::time::{SystemTime, UNIX_EPOCH};
+use serde::{Serialize, Deserialize};
 
-#[derive(Debug, Clone)]
+#[derive(Serialize, Deserialize, Clone, Debug)]
 pub struct Transaction {
   pub from: String,
   pub to: String,
-  pub value: u32,
+  pub value: u64,
   pub timestamp: u128
 }
 
@@ -12,7 +13,7 @@ impl Transaction {
   pub fn new(
     from: String,
     to: String,
-    value: u32
+    value: u64
   ) -> Transaction {
     Transaction {
       from,
