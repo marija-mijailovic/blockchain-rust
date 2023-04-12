@@ -9,7 +9,7 @@ fn main() {
 
     match subcommand {
         CommandType::CreateAccount(args) => {
-            blockchain.add_accounts(args.account.to_owned());
+            blockchain.add_accounts(args.account);
         },
         CommandType::CreateTransaction(args) => {
             let tx = Transaction::new(

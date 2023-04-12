@@ -29,14 +29,13 @@ impl Blockchain {
     let transactions = vec![transaction];
     match self.blocks.last() {
       Some(prev_block) => {
-        let mut block = Block::new(transactions, &prev_block);
+        let mut block = Block::new(transactions, prev_block);
         block.set_hash();
         self.blocks.push(block);
         let new_sender_balance = match self.accounts.get(&tx.from) {
           Some(balance) => {
             if *balance > tx.value {
-              let balance_after_tx = *balance - tx.value;
-              balance_after_tx
+              *balance - tx.value
             } else {
               panic!("Sender {:?} balance is invalid", tx.from);
             }
@@ -66,7 +65,7 @@ impl Blockchain {
   fn get_bc() -> Blockchain {
     let path = Path::new("ledger.json");
     {
-      let contents = read_to_string(&path).unwrap();
+      let contents = read_to_string(path).unwrap();
       serde_json::from_str::<Blockchain>(&contents).unwrap()
     }
   }

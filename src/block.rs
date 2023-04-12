@@ -24,7 +24,7 @@ impl Block {
       hash: vec![0; 32],
       prev_block_hash: prev_block.hash.clone(), 
       nonce: 0,
-      transactions: transactions
+      transactions
     }
   }
 
