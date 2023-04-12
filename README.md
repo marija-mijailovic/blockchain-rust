@@ -14,19 +14,19 @@ Simple blockchain implementation in Rust
 
 2. Build the project
   ```
-    cargo build
+    cargo install --path . 
   ```
   
 3. Run the project 
 - Create account
   ``` 
-    cargo run create-account <account> 
+    blockchain_rust create-account <account> 
   ```
 - Create transfer
   ``` 
-    cargo run create-transaction <from> <to> <amount> 
+    blockchain_rust create-transaction <from> <to> <amount> 
   ```
 - Check account balance  
   ``` 
-    cargo run check-balance <account> 
+    blockchain_rust check-balance <account> 
   ```
